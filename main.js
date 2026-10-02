@@ -161,6 +161,164 @@
     });
   }
 
+  /* ------------------------------------------------------------------
+   * The project line: a train where every carriage is a project.
+   * Scroll (or the arrows / route stops) moves the train so the current
+   * carriage pulls up at the platform; the departure board follows.
+   * ------------------------------------------------------------------ */
+  const projects = [
+    { name: 'Alter', tint: '#FFD44E', tag: 'Android · AI companion', ui: 'chat', link: 'https://hardik-gupta.com/',
+      desc: "My personal AI assistant for Android. I designed it, built it in real code, and it's the app I open most in a day." },
+    { name: 'Track It', tint: '#B4F6B8', tag: 'Android · expense tracker', ui: 'bars', link: 'https://hardik-gupta.com/',
+      desc: 'An expense tracker that turns logging money into a two-second habit instead of a chore.' },
+    { name: 'Parchi', tint: '#E7BBFF', tag: 'Android · voice billing', ui: 'voice', link: 'https://hardik-gupta.com/',
+      desc: 'Say the order out loud, get the bill. Built for busy counters, not boardrooms.' },
+    { name: 'Hourbit', tint: '#98FF53', tag: 'Android · focus timer', ui: 'timer', link: 'https://hardik-gupta.com/',
+      desc: 'A focus timer that stays out of the way until you need it.' },
+    { name: 'Washio', tint: '#A9DEFF', tag: 'UX/UI case study · design only', ui: 'list', link: 'https://hardik-gupta.com/',
+      desc: "A laundry app where the real problem wasn't scheduling, it was trusting a stranger with your clothes. Designed down to the last state." },
+    { name: 'FXKIT', tint: '#FF9E7A', tag: 'Web tool', ui: 'web', link: 'https://fxkit.vercel.app/',
+      desc: 'Photo and video effects in the browser: halftone, dither, CRT, film. Nothing leaves your device.' },
+    { name: 'Piyo Aur Peene Do', tint: '#FFC46B', tag: 'Website · chai brand', ui: 'web', link: 'https://hardik-gupta.com/',
+      desc: 'A site for a street-stall chai brand, with a hero image run through FXKIT.' },
+    { name: 'Mistline', tint: '#8FE3D6', tag: 'Website · web radio', ui: 'web', link: 'https://hardik-gupta.com/',
+      desc: 'Web radio for monsoon road trips, complete with a rain mode.' }
+  ];
+  const UI = {
+    chat: '<div class="phone-ui ui-chat"><div class="b l"></div><div class="b r"></div><div class="b l s"></div><div class="b r s"></div><div class="input"></div></div>',
+    bars: '<div class="phone-ui ui-bars"><div class="big">₹ 12,480</div><div class="bars"><i style="--h:40%"></i><i style="--h:72%"></i><i style="--h:55%"></i><i style="--h:90%"></i><i style="--h:35%"></i></div><div class="row"></div></div>',
+    voice: '<div class="phone-ui ui-voice"><div class="mic"></div><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="row"></div><div class="row short"></div></div>',
+    timer: '<div class="phone-ui ui-timer"><div class="ring"><span>25:00</span></div><div class="row short"></div></div>',
+    list: '<div class="phone-ui ui-list"><div class="row"></div><div class="slot"></div><div class="slot on"></div><div class="slot"></div><div class="cta"></div></div>'
+  };
+  const pad = (n) => String(n).padStart(2, '0');
+
+  const train = document.getElementById('train');
+  const route = document.getElementById('route');
+  projects.forEach((p, i) => {
+    const win = p.ui === 'web'
+      ? '<div class="browser"><div class="browser-bar"><i></i><i></i><i></i></div><div class="browser-art" style="background:linear-gradient(135deg,' + p.tint + ' 0 40%, #0B1020 40% 44%, #F7F6EF 44%)"></div></div>'
+      : '<div class="phone"><div class="phone-notch"></div>' + UI[p.ui] + '</div>';
+    train.insertAdjacentHTML('beforeend',
+      `<div class="car" style="--tint:${p.tint}"><div class="car-body">
+         <span class="car-no mono">${pad(i + 1)}</span>
+         <div class="car-window">${win}</div>
+         <div class="car-label"><h3>${p.name}</h3><p class="mono">${p.tag}</p></div>
+         <div class="car-door"></div>
+       </div><div class="car-wheels"><i></i><i></i><i></i><i></i></div></div>`);
+    route.insertAdjacentHTML('beforeend',
+      `<li style="--stop:${p.tint}"><button type="button" data-stop="${i}" aria-label="Go to ${p.name}"><span class="stop"></span><span class="stop-name">${p.name}</span></button></li>`);
+  });
+
+  const cars = Array.from(train.querySelectorAll('.car'));
+  const wheels = train.querySelectorAll('.car-wheels i');
+  const poles = document.getElementById('scene-poles');
+  const stops = Array.from(route.querySelectorAll('li'));
+  const boardNo = document.getElementById('board-no');
+  const boardTag = document.getElementById('board-tag');
+  const boardName = document.getElementById('board-name');
+  const boardDesc = document.getElementById('board-desc');
+  const boardLink = document.getElementById('board-link');
+  const prevBtn = document.getElementById('line-prev');
+  const nextBtn = document.getElementById('line-next');
+  const last = projects.length - 1;
+  let current = -1;
+
+  // train x that puts carriage i in the middle of the screen
+  const xFor = (i) => {
+    const c = cars[i];
+    return window.innerWidth / 2 - (c.offsetLeft + c.offsetWidth / 2);
+  };
+  // fractional position f (0..last) → x, interpolating between neighbouring carriages
+  const xAt = (f) => {
+    const a = Math.floor(f), b = Math.min(last, a + 1);
+    return xFor(a) + (xFor(b) - xFor(a)) * (f - a);
+  };
+  function placeTrain(x) {
+    gsap.set(train, { x });
+    wheels.forEach((w) => w.style.setProperty('--spin', (-x / (Math.PI * 34)) * 360 + 'deg'));
+    poles.style.backgroundPosition = (x * 0.35) + 'px 0';
+  }
+
+  function setStop(i) {
+    if (i === current) return;
+    const p = projects[i];
+    const update = () => {
+      boardNo.textContent = pad(i + 1);
+      boardTag.textContent = p.tag;
+      boardName.textContent = p.name;
+      boardDesc.textContent = p.desc;
+      boardLink.href = p.link;
+      boardLink.textContent = p.link.includes('fxkit') ? 'Open FXKIT ↗' : 'See it on hardik-gupta.com ↗';
+    };
+    if (current === -1 || reduceMotion) update();
+    else {
+      // split-flap style: old text flips up, new text drops in
+      gsap.timeline()
+        .to([boardName, boardDesc, boardTag], { yPercent: -60, opacity: 0, duration: 0.18, ease: 'power2.in', onComplete: update })
+        .fromTo([boardName, boardDesc, boardTag], { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.3, ease: 'back.out(2)', stagger: 0.04 });
+      blip(440 + i * 40, 0.09, 'triangle', 0.05);
+    }
+    current = i;
+    stops.forEach((s, k) => { s.classList.toggle('current', k === i); s.classList.toggle('passed', k < i); });
+    prevBtn.disabled = i === 0;
+    nextBtn.disabled = i === last;
+  }
+
+  let lineST = null;
+  function goTo(i) {
+    i = Math.max(0, Math.min(last, i));
+    if (lineST) {
+      const y = lineST.start + (lineST.end - lineST.start) * (i / last) + 1;
+      lenis ? lenis.scrollTo(y, { duration: 1.2 }) : window.scrollTo({ top: y, behavior: reduceMotion ? 'auto' : 'smooth' });
+    } else {
+      setStop(i);
+      placeTrain(xFor(i));
+      gsap.set('#route-fill', { scaleX: i / last });
+    }
+  }
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+  route.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-stop]');
+    if (b) goTo(Number(b.dataset.stop));
+  });
+  document.getElementById('work').addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+  });
+
+  setStop(0);
+  placeTrain(xFor(0));
+  window.addEventListener('resize', () => { if (!lineST) placeTrain(xFor(current)); });
+
+  if (!reduceMotion) {
+    // scroll drives the train; one screen-ish of scroll per stop, snapping at stations
+    const xTo = gsap.quickTo(train, 'x', { duration: 0.5, ease: 'power3.out', onUpdate: () => {
+      const x = gsap.getProperty(train, 'x');
+      wheels.forEach((w) => w.style.setProperty('--spin', (-x / (Math.PI * 34)) * 360 + 'deg'));
+      poles.style.backgroundPosition = (x * 0.35) + 'px 0';
+    } });
+    lineST = ScrollTrigger.create({
+      trigger: '#work', start: 'top top', end: () => '+=' + last * window.innerHeight * 0.75,
+      pin: '.line-pin', anticipatePin: 1, invalidateOnRefresh: true,
+      snap: { snapTo: 1 / last, duration: { min: 0.3, max: 0.7 }, delay: 0.08, ease: 'power2.inOut' },
+      onUpdate: (st) => {
+        const f = st.progress * last;
+        xTo(xAt(f));
+        gsap.set('#route-fill', { scaleX: st.progress });
+        setStop(Math.round(f));
+      },
+      onRefresh: (st) => placeTrain(xAt(st.progress * last))
+    });
+    // the train pulls in the first time the line comes into view
+    gsap.from(train, {
+      xPercent: 60, opacity: 0, duration: 1.6, ease: 'expo.out',
+      scrollTrigger: { trigger: '#work', start: 'top 70%', once: true },
+      onStart: () => { blip(220, 0.25, 'sawtooth', 0.03); setTimeout(() => blip(180, 0.3, 'sawtooth', 0.03), 260); }
+    });
+  }
+
   if (reduceMotion) return;   // everything below is motion
 
   /* ------------------------------------------------------------------
@@ -170,35 +328,6 @@
     .to('.hero-name', { yPercent: -60, ease: 'none' }, 0)
     .to('.hero-figure', { yPercent: 12, scale: 1.06, ease: 'none' }, 0)
     .to('.hero-meta', { y: -80, opacity: 0, ease: 'none' }, 0);
-
-  /* ------------------------------------------------------------------
-   * Work: pin the section and slide the shelf sideways (desktop only)
-   * ------------------------------------------------------------------ */
-  const mm = gsap.matchMedia();
-  mm.add('(min-width: 901px)', () => {
-    const track = document.getElementById('work-track');
-    const dist = () => track.scrollWidth - (window.innerWidth - track.getBoundingClientRect().left) + 40;
-    const tween = gsap.to(track, {
-      x: () => -dist(), ease: 'none',
-      scrollTrigger: {
-        trigger: '.work', start: 'top top', end: () => '+=' + dist(),
-        pin: '.work-pin', scrub: 1, invalidateOnRefresh: true,
-        onUpdate: (st) => gsap.set('#work-progress-bar', { scaleX: st.progress })
-      }
-    });
-    // cards tilt in as they enter from the right
-    gsap.utils.toArray('.app-card, .web-card').forEach((card) => {
-      gsap.from(card, {
-        rotate: 6, y: 60, opacity: 0.4, ease: 'none',
-        scrollTrigger: { trigger: card, containerAnimation: tween, start: 'left 100%', end: 'left 60%', scrub: true }
-      });
-    });
-  });
-  mm.add('(max-width: 900px)', () => {
-    gsap.utils.toArray('.app-card, .web-card').forEach((card) => {
-      gsap.from(card, { y: 60, opacity: 0, duration: 0.8, ease: 'expo.out', scrollTrigger: { trigger: card, start: 'top 85%' } });
-    });
-  });
 
   /* ------------------------------------------------------------------
    * About: words light up one by one as you scroll

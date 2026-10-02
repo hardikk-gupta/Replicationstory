@@ -72,71 +72,49 @@
   </div>
 </div>
 
-<!-- WORK: pinned horizontal shelf -->
-<section id="work" class="work">
-  <div class="work-pin">
-    <div class="work-head">
-      <p class="mono kicker">01 / work</p>
-      <h2>Here's what I've<br>actually made.</h2>
-      <p class="lede">Proof first, story later. Most of these I designed <em>and</em> built myself, in real code.</p>
-      <div class="work-progress" aria-hidden="true"><span id="work-progress-bar"></span></div>
+<!-- WORK: the project line — a train where every carriage is a project -->
+<section id="work" class="line">
+  <div class="line-pin">
+    <div class="line-head">
+      <div>
+        <p class="mono kicker">01 / work · the project line</p>
+        <h2>All aboard.<br><span>Every carriage is something I made.</span></h2>
+      </div>
+      <div class="line-controls">
+        <button class="line-btn" id="line-prev" aria-label="Previous stop">←</button>
+        <button class="line-btn" id="line-next" aria-label="Next stop">→</button>
+      </div>
     </div>
 
-    <div class="work-track" id="work-track">
-      <article class="app-card" style="--tint:#FFD44E" data-sound>
-        <div class="phone"><div class="phone-notch"></div>
-          <div class="phone-ui ui-chat">
-            <div class="b l"></div><div class="b r"></div><div class="b l s"></div><div class="b r s"></div><div class="input"></div>
-          </div>
-        </div>
-        <div class="app-info"><p class="mono tag">Android · built by me</p><h3>Alter</h3><p>My personal AI companion. Designed it, built it, and it's the app I open most in a day.</p></div>
-      </article>
+    <!-- route map -->
+    <ol class="route" id="route" aria-label="Projects on the line">
+      <span class="route-track" aria-hidden="true"><span id="route-fill"></span></span>
+    </ol>
 
-      <article class="app-card" style="--tint:#B4F6B8" data-sound>
-        <div class="phone"><div class="phone-notch"></div>
-          <div class="phone-ui ui-bars">
-            <div class="big">₹ 12,480</div><div class="bars"><i style="--h:40%"></i><i style="--h:72%"></i><i style="--h:55%"></i><i style="--h:90%"></i><i style="--h:35%"></i><i style="--h:62%"></i></div><div class="row"></div><div class="row"></div>
+    <!-- platform scene -->
+    <div class="scene" aria-hidden="true">
+      <div class="scene-poles" id="scene-poles"></div>
+      <div class="train" id="train">
+        <div class="engine">
+          <div class="engine-nose"><span class="headlight"></span></div>
+          <div class="engine-body">
+            <span class="engine-logo">HG</span>
+            <span class="mono engine-route">LINE 01 · DESIGN → CODE</span>
           </div>
+          <div class="car-wheels"><i></i><i></i><i></i></div>
         </div>
-        <div class="app-info"><p class="mono tag">Android · built by me</p><h3>Track It</h3><p>An expense tracker that makes logging money feel like a two-second habit, not a chore.</p></div>
-      </article>
+      </div>
+      <div class="platform"><span class="platform-edge"></span></div>
+    </div>
 
-      <article class="app-card" style="--tint:#E7BBFF" data-sound>
-        <div class="phone"><div class="phone-notch"></div>
-          <div class="phone-ui ui-voice">
-            <div class="mic"></div><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="row"></div><div class="row short"></div>
-          </div>
-        </div>
-        <div class="app-info"><p class="mono tag">Android · built by me</p><h3>Parchi</h3><p>Voice billing. Say the order out loud, get the bill. Built for counters, not boardrooms.</p></div>
-      </article>
-
-      <article class="app-card" style="--tint:#98FF53" data-sound>
-        <div class="phone"><div class="phone-notch"></div>
-          <div class="phone-ui ui-timer">
-            <div class="ring"><span>25:00</span></div><div class="row short"></div>
-          </div>
-        </div>
-        <div class="app-info"><p class="mono tag">Android · built by me</p><h3>Hourbit</h3><p>A focus timer that stays out of the way until you need it.</p></div>
-      </article>
-
-      <article class="app-card" style="--tint:#A9DEFF" data-sound>
-        <div class="phone"><div class="phone-notch"></div>
-          <div class="phone-ui ui-list">
-            <div class="row"></div><div class="slot"></div><div class="slot on"></div><div class="slot"></div><div class="cta"></div>
-          </div>
-        </div>
-        <div class="app-info"><p class="mono tag">UX/UI case study · design only</p><h3>Washio</h3><p>A laundry app where the real problem wasn't scheduling — it was trusting a stranger with your clothes.</p></div>
-      </article>
-
-      <article class="web-card" data-sound>
-        <p class="mono kicker">websites &amp; tools</p>
-        <ul class="web-list">
-          <li><a href="https://fxkit.vercel.app/" target="_blank" rel="noopener"><span>FXKIT</span><em>Photo &amp; video effects in the browser — halftone, dither, CRT, film.</em><b>↗</b></a></li>
-          <li><a href="https://hardik-gupta.com/" target="_blank" rel="noopener"><span>Piyo Aur Peene Do</span><em>Site for a street-stall chai brand.</em><b>↗</b></a></li>
-          <li><a href="https://hardik-gupta.com/" target="_blank" rel="noopener"><span>Mistline</span><em>Web radio for monsoon road trips, with rain mode.</em><b>↗</b></a></li>
-        </ul>
-        <a class="btn btn-ink magnetic" href="https://hardik-gupta.com/" target="_blank" rel="noopener">Full case studies →</a>
-      </article>
+    <!-- departure board -->
+    <div class="board" aria-live="polite">
+      <div class="board-left">
+        <p class="mono board-now">now at platform <span id="board-no">01</span> · <span id="board-tag"></span></p>
+        <h3 id="board-name">Alter</h3>
+      </div>
+      <p class="board-desc" id="board-desc"></p>
+      <a class="btn btn-yellow board-link" id="board-link" href="https://hardik-gupta.com/" target="_blank" rel="noopener">See the case study →</a>
     </div>
   </div>
 </section>
