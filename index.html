@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hardik Gupta · UI/UX & Visual Designer</title>
+<meta name="description" content="Hardik Gupta designs apps and websites end to end, then builds them in code. UI/UX and visual designer based in Bangalore.">
+<meta property="og:title" content="Hardik Gupta · UI/UX & Visual Designer">
+<meta property="og:description" content="I design products, then I build them myself.">
+<meta name="theme-color" content="#F2FF00">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F2FF00'/%3E%3Ctext x='32' y='45' font-family='Arial Black,Arial' font-weight='900' font-size='36' text-anchor='middle' fill='%230B1020'%3EH%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-count mono"><span id="loader-num">000</span></div>
+  <div class="loader-status mono" id="loader-status">warming up the pixels</div>
+</div>
+
+<!-- Top bar -->
+<header class="topbar">
+  <a href="#hero" class="brand" data-scroll>Hardik<span>.</span></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#work" data-scroll>Work</a>
+    <a href="#about" data-scroll>About</a>
+    <a href="#principles" data-scroll>Process</a>
+    <a href="#experience" data-scroll>Experience</a>
+    <a href="#contact" data-scroll class="nav-cta">Say hi</a>
+  </nav>
+  <button id="sound-toggle" class="sound" aria-pressed="false" aria-label="Toggle interface sounds">
+    <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="mono sound-label">sound off</span>
+  </button>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-stage">
+    <canvas id="ripples" width="640" height="640" aria-hidden="true"></canvas>
+    <h1 class="hero-name" aria-label="Hardik Gupta">
+      <span class="hero-name-line" aria-hidden="true">HARDIK</span>
+    </h1>
+    <img class="hero-figure" src="assets/hardik-cutout.png" alt="Hardik Gupta, wearing a blue checked shirt, looking over his shoulder" width="408" height="470">
+  </div>
+
+  <div class="hero-meta hero-meta-left">
+    <p class="mono kicker">hi there, it's</p>
+    <p class="hero-role">Hardik Gupta —<br>UI/UX &amp; visual designer</p>
+  </div>
+
+  <div class="hero-meta hero-meta-right">
+    <p class="pill"><span class="dot"></span>Available for projects</p>
+    <p class="hero-line">I design apps &amp; websites end to end, <em>then build them in code.</em></p>
+    <a class="btn btn-ink magnetic" href="mailto:admin@hardik-gupta.com?subject=Let's%20build%20something">Schedule a call →</a>
+  </div>
+
+  <p class="scroll-hint mono" aria-hidden="true">scroll ↓</p>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>design it</span><b>✦</b><span>build it</span><b>✦</b><span>ship it</span><b>✦</b><span>sweat the empty states</span><b>✦</b>
+    <span>design it</span><b>✦</b><span>build it</span><b>✦</b><span>ship it</span><b>✦</b><span>sweat the empty states</span><b>✦</b>
+  </div>
+</div>
+
+<!-- WORK: pinned horizontal shelf -->
+<section id="work" class="work">
+  <div class="work-pin">
+    <div class="work-head">
+      <p class="mono kicker">01 / work</p>
+      <h2>Here's what I've<br>actually made.</h2>
+      <p class="lede">Proof first, story later. Most of these I designed <em>and</em> built myself, in real code.</p>
+      <div class="work-progress" aria-hidden="true"><span id="work-progress-bar"></span></div>
+    </div>
+
+    <div class="work-track" id="work-track">
+      <article class="app-card" style="--tint:#FFD44E" data-sound>
+        <div class="phone"><div class="phone-notch"></div>
+          <div class="phone-ui ui-chat">
+            <div class="b l"></div><div class="b r"></div><div class="b l s"></div><div class="b r s"></div><div class="input"></div>
+          </div>
+        </div>
+        <div class="app-info"><p class="mono tag">Android · built by me</p><h3>Alter</h3><p>My personal AI companion. Designed it, built it, and it's the app I open most in a day.</p></div>
+      </article>
+
+      <article class="app-card" style="--tint:#B4F6B8" data-sound>
+        <div class="phone"><div class="phone-notch"></div>
+          <div class="phone-ui ui-bars">
+            <div class="big">₹ 12,480</div><div class="bars"><i style="--h:40%"></i><i style="--h:72%"></i><i style="--h:55%"></i><i style="--h:90%"></i><i style="--h:35%"></i><i style="--h:62%"></i></div><div class="row"></div><div class="row"></div>
+          </div>
+        </div>
+        <div class="app-info"><p class="mono tag">Android · built by me</p><h3>Track It</h3><p>An expense tracker that makes logging money feel like a two-second habit, not a chore.</p></div>
+      </article>
+
+      <article class="app-card" style="--tint:#E7BBFF" data-sound>
+        <div class="phone"><div class="phone-notch"></div>
+          <div class="phone-ui ui-voice">
+            <div class="mic"></div><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="row"></div><div class="row short"></div>
+          </div>
+        </div>
+        <div class="app-info"><p class="mono tag">Android · built by me</p><h3>Parchi</h3><p>Voice billing. Say the order out loud, get the bill. Built for counters, not boardrooms.</p></div>
+      </article>
+
+      <article class="app-card" style="--tint:#98FF53" data-sound>
+        <div class="phone"><div class="phone-notch"></div>
+          <div class="phone-ui ui-timer">
+            <div class="ring"><span>25:00</span></div><div class="row short"></div>
+          </div>
+        </div>
+        <div class="app-info"><p class="mono tag">Android · built by me</p><h3>Hourbit</h3><p>A focus timer that stays out of the way until you need it.</p></div>
+      </article>
+
+      <article class="app-card" style="--tint:#A9DEFF" data-sound>
+        <div class="phone"><div class="phone-notch"></div>
+          <div class="phone-ui ui-list">
+            <div class="row"></div><div class="slot"></div><div class="slot on"></div><div class="slot"></div><div class="cta"></div>
+          </div>
+        </div>
+        <div class="app-info"><p class="mono tag">UX/UI case study · design only</p><h3>Washio</h3><p>A laundry app where the real problem wasn't scheduling — it was trusting a stranger with your clothes.</p></div>
+      </article>
+
+      <article class="web-card" data-sound>
+        <p class="mono kicker">websites &amp; tools</p>
+        <ul class="web-list">
+          <li><a href="https://fxkit.vercel.app/" target="_blank" rel="noopener"><span>FXKIT</span><em>Photo &amp; video effects in the browser — halftone, dither, CRT, film.</em><b>↗</b></a></li>
+          <li><a href="https://hardik-gupta.com/" target="_blank" rel="noopener"><span>Piyo Aur Peene Do</span><em>Site for a street-stall chai brand.</em><b>↗</b></a></li>
+          <li><a href="https://hardik-gupta.com/" target="_blank" rel="noopener"><span>Mistline</span><em>Web radio for monsoon road trips, with rain mode.</em><b>↗</b></a></li>
+        </ul>
+        <a class="btn btn-ink magnetic" href="https://hardik-gupta.com/" target="_blank" rel="noopener">Full case studies →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT: words light up as you scroll -->
+<section id="about" class="about">
+  <p class="mono kicker">02 / about</p>
+  <h2 class="about-title">Commerce degree.<br>Ended up designing products.</h2>
+  <div class="about-grid">
+    <p class="reveal-words">I've been doing visual and graphic design since 2022. Somewhere along the way the part that hooked me changed. Now it's the UX: who is using this, what state of mind they're in, and what they actually need from the screen in front of them.</p>
+    <p class="reveal-words">No design school — I learned on real clients with real deadlines. That means I've never designed something that didn't have to survive contact with a developer. Mostly because the developer was me.</p>
+  </div>
+  <div class="offscreen">
+    <p class="mono kicker">off the screen</p>
+    <p>College in Dehradun meant the mountains were always close — Mussoorie was a regular weekend plan. I like new places, people who laugh easily, and working hard for whatever I want.</p>
+  </div>
+</section>
+
+<!-- PRINCIPLES: sticky stacking cards -->
+<section id="principles" class="principles">
+  <div class="principles-head">
+    <p class="mono kicker">03 / process</p>
+    <h2>Four things I do<br>on every project.</h2>
+  </div>
+  <div class="stack">
+    <article class="stack-card" style="--c:#F2FF00"><span class="num mono">01</span><h3>Chase the real problem.</h3><p>Briefs usually describe a solution someone already picked. The useful work is finding what's underneath it.</p></article>
+    <article class="stack-card" style="--c:#A9DEFF"><span class="num mono">02</span><h3>Push back once, properly.</h3><p>If I think a call is wrong, I'll say so with a reason — then build what you decide. It's your product.</p></article>
+    <article class="stack-card" style="--c:#E7BBFF"><span class="num mono">03</span><h3>Design the boring states.</h3><p>Empty, loading, error, offline, the name that's too long. That's where products feel cheap, so that's where I'm stubborn.</p></article>
+    <article class="stack-card" style="--c:#98FF53"><span class="num mono">04</span><h3>Hand over something buildable.</h3><p>Consistent spacing, real components, specified states, motion in milliseconds. If a developer has to guess, I'm not done.</p></article>
+  </div>
+</section>
+
+<!-- EXPERIENCE: drawn timeline -->
+<section id="experience" class="experience">
+  <p class="mono kicker">04 / experience</p>
+  <h2>Where I've worked.</h2>
+  <ol class="timeline">
+    <span class="timeline-line" aria-hidden="true"><span id="timeline-fill"></span></span>
+    <li><span class="mono year">2026</span><div><h3>Freelance · UI/UX &amp; visual design</h3><p>Working with founders and teams directly, on products that need both the thinking and the screens. Bangalore-based, working anywhere.</p></div></li>
+    <li><span class="mono year">2026</span><div><h3>IDEX Media · Designer</h3><p>Often on site at the brands IDEX works with — Flipkart first, now Cult — plus creatives for Myntra, Amazon and Center Fruit.</p></div></li>
+    <li><span class="mono year">2025</span><div><h3>Freelance designer</h3><p>Identity, graphics and product work for my own clients. The first time people paid for my thinking, not just my output.</p></div></li>
+    <li><span class="mono year">2025</span><div><h3>Velossalabs · UI/UX design intern</h3><p>Remote. Where product design stopped being something from videos and became real work with a team.</p></div></li>
+  </ol>
+  <p class="edu mono">B.Com (Hons) Marketing · DBS Global University, Dehradun · 2023–2026 · design: self-taught</p>
+</section>
+
+<!-- TOOLS -->
+<section class="tools" aria-label="Tools">
+  <p class="mono kicker">what I open every day</p>
+  <ul class="tool-cloud">
+    <li>Figma</li><li>Framer</li><li>VS Code</li><li>GitHub</li><li>Vercel</li><li>Claude</li><li>ChatGPT</li><li>Gemini</li><li>AI Studio</li><li>Notion</li><li class="hl">Alter <small>(my own app)</small></li>
+  </ul>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <canvas id="ripples-2" width="640" height="640" aria-hidden="true"></canvas>
+  <div class="sticker" style="--r:-8deg;--x:6%;--y:24%">and… shipped ✓</div>
+  <div class="sticker alt" style="--r:6deg;--x:74%;--y:20%">chai break, back in 5</div>
+  <div class="sticker blue" style="--r:-3deg;--x:78%;--y:70%">mapping the flow</div>
+  <div class="contact-inner">
+    <p class="mono kicker">05 / contact</p>
+    <h2>Tell me what<br>you're building.</h2>
+    <button class="email magnetic" id="copy-email" data-email="admin@hardik-gupta.com">admin@hardik-gupta.com<span class="mono copy-hint">click to copy</span></button>
+    <div class="contact-links">
+      <a class="btn btn-yellow magnetic" href="mailto:admin@hardik-gupta.com?subject=Let's%20build%20something">Write to me →</a>
+      <a class="btn btn-ghost" href="https://hardik-gupta.com/" target="_blank" rel="noopener">hardik-gupta.com ↗</a>
+    </div>
+    <p class="mono drag-hint" aria-hidden="true">psst — the stickers move</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer mono">
+  <span>© 2026 Hardik Gupta</span>
+  <span>Designed &amp; built in code</span>
+  <a href="#hero" data-scroll>back to top ↑</a>
+</footer>
+
+<div class="toast mono" id="toast" role="status" aria-live="polite"></div>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/Draggable.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
