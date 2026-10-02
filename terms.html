@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="only light">
+    <title>Terms of Use | Bajkamal Singh</title>
+    <meta name="description" content="Terms of Use for bajkamalsingh.me — ownership of content, third-party work and trademarks, acceptable use and legal terms.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Schoolbell&family=DM+Mono:wght@400;500&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --beige: #F4EFE6;
+            --beige-dark: #E5DFC8;
+            --blue: #012CEB;
+            --navy: #051024;
+            --muted: rgba(5, 16, 36, 0.7);
+            --rule: rgba(5, 16, 36, 0.14);
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+        body {
+            margin: 0;
+            background: var(--beige);
+            color: var(--navy);
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            overflow-wrap: break-word;
+        }
+        ::selection { background: var(--blue); color: var(--beige); }
+        a { color: var(--blue); text-underline-offset: 3px; }
+        a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+        .wrap { max-width: 760px; margin: 0 auto; padding: 20px 16px 80px; }
+        .topbar {
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+            padding-bottom: 8px; border-bottom: 3px solid var(--navy);
+        }
+        .topbar a { color: var(--navy); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+        .topbar a:hover { color: var(--blue); }
+        .topbar nav { display: flex; gap: 20px; }
+        .topbar nav a[aria-current="page"] { color: var(--blue); }
+
+        h1 {
+            font-family: 'Schoolbell', cursive; font-weight: 400;
+            font-size: clamp(52px, 14vw, 104px); line-height: 0.95;
+            margin: 40px 0 12px; letter-spacing: -0.01em;
+        }
+        h1 span { color: var(--blue); }
+        .updated { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--muted); margin: 0 0 32px; }
+
+        .ledger {
+            border: 3px solid var(--navy); background: #fff;
+            box-shadow: 6px 6px 0 var(--navy);
+            margin: 0 6px 40px 0;
+        }
+        .ledger-head {
+            font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+            padding: 12px 18px; border-bottom: 2px solid var(--navy); background: var(--navy); color: var(--beige);
+        }
+        .ledger ul { margin: 0; padding: 16px 18px 16px 36px; }
+        .ledger li { margin: 6px 0; }
+
+        .toc { border-top: 2px solid var(--navy); border-bottom: 2px solid var(--navy); padding: 16px 0; margin: 0 0 8px; }
+        .toc-title { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 8px; color: var(--muted); }
+        .toc ol { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 32px; }
+        .toc li { margin: 0; break-inside: avoid; }
+        .toc a { display: flex; gap: 10px; align-items: baseline; padding: 7px 0; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 15px; line-height: 1.35; }
+        .toc a:hover { color: var(--blue); }
+        .toc a span { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 12px; color: var(--blue); flex: 0 0 auto; }
+
+        h2 {
+            font-family: 'Inter', Arial, sans-serif; font-weight: 800; font-size: 22px; line-height: 1.3;
+            margin: 44px 0 12px; padding-top: 20px; border-top: 2px solid var(--rule);
+            scroll-margin-top: 12px;
+        }
+        h2 .n { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 14px; color: var(--blue); margin-right: 10px; }
+        ul { padding-left: 22px; }
+        li { margin: 8px 0; }
+        .muted { color: var(--muted); }
+
+        .sign {
+            margin-top: 64px; padding-top: 16px; border-top: 3px solid var(--navy);
+            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 16px;
+        }
+        .sign .name { font-family: 'Gloria Hallelujah', cursive; font-size: 30px; line-height: 1.2; transform: rotate(-2deg); }
+        .sign .name span { color: var(--blue); }
+        .sign .links { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; display: flex; gap: 20px; }
+        .sign .links a { display: inline-flex; align-items: center; min-height: 44px; }
+
+        @media (max-width: 600px) {
+            .toc ol { columns: 1; }
+            h2 { font-size: 20px; margin-top: 36px; }
+            .ledger ul { padding: 14px 16px 14px 32px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="topbar">
+            <a href="/">&larr; Portfolio</a>
+            <nav aria-label="Legal">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html" aria-current="page">Terms</a>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Terms <span>of Use</span></h1>
+            <p class="updated">Last updated: 28 September 2026</p>
+
+            <section class="ledger" aria-label="Summary">
+                <div class="ledger-head">The short version</div>
+                <ul>
+                    <li>Browse the site, share the link, get inspired.</li>
+                    <li>Don't copy the site's design, code or content, or present it as yours.</li>
+                    <li>Brand names, logos and client work belong to their owners. They appear here only to show what I worked on.</li>
+                    <li>Don't try to break, overload or scrape the site.</li>
+                    <li>The site is provided as it is, and Indian law applies.</li>
+                </ul>
+            </section>
+
+            <nav class="toc" aria-label="Contents">
+                <p class="toc-title">On this page</p>
+                <ol>
+                    <li><a href="#agreement"><span>01</span>Agreement</a></li>
+                    <li><a href="#about"><span>02</span>What this site is</a></li>
+                    <li><a href="#ownership"><span>03</span>My content</a></li>
+                    <li><a href="#open-source"><span>04</span>Open-source software and fonts</a></li>
+                    <li><a href="#third-party"><span>05</span>Brands, client work and results</a></li>
+                    <li><a href="#use"><span>06</span>Acceptable use</a></li>
+                    <li><a href="#contacting"><span>07</span>Contacting me</a></li>
+                    <li><a href="#external"><span>08</span>External links</a></li>
+                    <li><a href="#warranty"><span>09</span>No warranties</a></li>
+                    <li><a href="#liability"><span>10</span>Limitation of liability</a></li>
+                    <li><a href="#responsibility"><span>11</span>Your responsibility</a></li>
+                    <li><a href="#law"><span>12</span>Governing law</a></li>
+                    <li><a href="#general"><span>13</span>General</a></li>
+                    <li><a href="#contact"><span>14</span>Contact</a></li>
+                </ol>
+            </nav>
+
+            <h2 id="agreement"><span class="n">01</span>Agreement</h2>
+            <p>These Terms of Use ("Terms") apply to your use of <strong>bajkamalsingh.me</strong>, including www.bajkamalsingh.me (the "site"). The site is the personal portfolio of <strong>Bajkamal Singh</strong> ("I", "me"). By using the site, you agree to these Terms. If you don't agree, please don't use the site. The <a href="privacy.html">Privacy Policy</a> explains how data is handled when you visit.</p>
+
+            <h2 id="about"><span class="n">02</span>What this site is</h2>
+            <p>The site presents my professional background, projects and creative work. It's for information only. Nothing on it is an offer, a contract, or professional, financial or marketing advice.</p>
+
+            <h2 id="ownership"><span class="n">03</span>My content</h2>
+            <p>Except for the third-party material described in sections 04 and 05, the site's original design, layout, code, text, illustrations, animations, sound design and other creative content are owned by me and protected by copyright and other laws. &copy; 2026 Bajkamal Singh. All rights reserved.</p>
+            <p><strong>You may</strong> view the site, share links to it, and refer to it when discussing my work.</p>
+            <p><strong>You may not</strong>, without my written permission:</p>
+            <ul>
+                <li>copy, reproduce, republish or redistribute the site or substantial parts of it;</li>
+                <li>clone its design, code or interactions, or present them as your own work;</li>
+                <li>use its content for commercial purposes;</li>
+                <li>scrape or bulk-download the site, or use its content to train AI or machine-learning models;</li>
+                <li>remove or change any copyright, trademark or credit notices.</li>
+            </ul>
+            <p class="muted">The site's source code may be publicly viewable. That doesn't grant any licence to reuse it.</p>
+
+            <h2 id="open-source"><span class="n">04</span>Open-source software and fonts</h2>
+            <p>The site uses third-party open-source libraries, including Tailwind CSS, GSAP, Lucide, Lenis and Tone.js, and fonts from Google Fonts and CDNFonts. Each is used under its own licence and belongs to its owner. Nothing in these Terms gives you, or claims for me, any rights in them beyond those licences.</p>
+
+            <h2 id="third-party"><span class="n">05</span>Brands, client work and results</h2>
+            <p>The site describes projects I worked on for or with brands, creators and organisations. Their names, logos, trademarks and campaign assets belong to their respective owners. Some photos and videos were created by clients, collaborators or photographers, and they keep their rights in that material. It appears here only to identify the work and describe my role in it. This doesn't mean any of them sponsor or endorse this site or me, beyond the working relationship described.</p>
+            <p>Metrics and results, such as reach, revenue, growth or conversion figures, are based on the information available to me at the time, such as platform analytics or campaign reports, and are presented in good faith. They may be rounded or approximate. They apply to those specific projects and aren't a promise of future results.</p>
+            <p>If you own rights in anything shown here and want it credited differently or removed, email <a href="mailto:bajkamalsingh1@gmail.com">bajkamalsingh1@gmail.com</a>. I'll review your request promptly.</p>
+
+            <h2 id="use"><span class="n">06</span>Acceptable use</h2>
+            <p>When using the site, you agree not to:</p>
+            <ul>
+                <li>try to gain unauthorised access to the site or its hosting, or disrupt, overload or damage them, for example with denial-of-service attacks, bots or automated traffic;</li>
+                <li>probe, scan or test the site for vulnerabilities, except through the responsible disclosure process below;</li>
+                <li>embed the site in a frame on another website;</li>
+                <li>impersonate me, or suggest you're affiliated with me when you aren't;</li>
+                <li>use the site in any way that breaks applicable law.</li>
+            </ul>
+            <p>I may block access for anyone who breaks these Terms.</p>
+            <p class="muted">Responsible disclosure: if you find a security issue, please email me privately before sharing it publicly. Good-faith reports are appreciated.</p>
+
+            <h2 id="contacting"><span class="n">07</span>Contacting me</h2>
+            <p>Emailing me through the site doesn't create an employment, client, contractual or confidential relationship. Please don't send confidential information, or ideas you consider proprietary, until we've agreed how they'll be handled.</p>
+
+            <h2 id="external"><span class="n">08</span>External links</h2>
+            <p>The site links to other websites and platforms, such as Instagram and LinkedIn. I don't control them and I'm not responsible for their content, availability or practices.</p>
+
+            <h2 id="warranty"><span class="n">09</span>No warranties</h2>
+            <p>The site is provided "as is" and "as available". I try to keep it accurate and online, but I don't promise that it will be error-free, always available, or free of harmful components introduced by third parties. I may change, suspend or remove any part of the site at any time.</p>
+
+            <h2 id="liability"><span class="n">10</span>Limitation of liability</h2>
+            <p>To the fullest extent the law allows, I'm not liable for any indirect, incidental, special or consequential loss, or any loss of data, profits or opportunity, that arises from your use of the site or your reliance on its content. Nothing in these Terms limits any liability that the law doesn't allow to be limited.</p>
+
+            <h2 id="responsibility"><span class="n">11</span>Your responsibility</h2>
+            <p>If you misuse the site or break these Terms, and that leads to a claim against me, you agree to cover the reasonable losses and costs that result, to the extent the law allows.</p>
+
+            <h2 id="law"><span class="n">12</span>Governing law and jurisdiction</h2>
+            <p>These Terms are governed by the laws of India. The courts at Delhi, India have exclusive jurisdiction over any dispute arising from them. This doesn't affect any mandatory rights you have under the laws of the country where you live.</p>
+
+            <h2 id="general"><span class="n">13</span>General</h2>
+            <ul>
+                <li><strong>Changes:</strong> I may update these Terms from time to time. The "Last updated" date shows the latest version, and continuing to use the site afterwards means you accept it.</li>
+                <li><strong>Severability:</strong> if any part of these Terms is found unenforceable, the rest stays in effect.</li>
+                <li><strong>No waiver:</strong> if I don't enforce a term straight away, I haven't given up the right to enforce it later.</li>
+                <li><strong>Entire agreement:</strong> these Terms and the Privacy Policy are the full agreement between you and me about using the site.</li>
+            </ul>
+
+            <h2 id="contact"><span class="n">14</span>Contact</h2>
+            <p><strong>Bajkamal Singh</strong><br>Delhi, India<br><a href="mailto:bajkamalsingh1@gmail.com">bajkamalsingh1@gmail.com</a></p>
+        </main>
+
+        <footer class="sign">
+            <div class="name">Bajkamal Singh <span>(Baaz)</span></div>
+            <div class="links">
+                <a href="/">Portfolio</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

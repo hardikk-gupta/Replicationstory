@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="only light">
+    <title>Privacy Policy | Bajkamal Singh</title>
+    <meta name="description" content="Privacy Policy for bajkamalsingh.me — what data is processed when you visit this portfolio, by whom, and your rights.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Schoolbell&family=DM+Mono:wght@400;500&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --beige: #F4EFE6;
+            --beige-dark: #E5DFC8;
+            --blue: #012CEB;
+            --navy: #051024;
+            --muted: rgba(5, 16, 36, 0.7);
+            --rule: rgba(5, 16, 36, 0.14);
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+        body {
+            margin: 0;
+            background: var(--beige);
+            color: var(--navy);
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            overflow-wrap: break-word;
+        }
+        ::selection { background: var(--blue); color: var(--beige); }
+        a { color: var(--blue); text-underline-offset: 3px; }
+        a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+        .wrap { max-width: 760px; margin: 0 auto; padding: 20px 16px 80px; }
+        .topbar {
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+            padding-bottom: 8px; border-bottom: 3px solid var(--navy);
+        }
+        .topbar a { color: var(--navy); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+        .topbar a:hover { color: var(--blue); }
+        .topbar nav { display: flex; gap: 20px; }
+        .topbar nav a[aria-current="page"] { color: var(--blue); }
+
+        h1 {
+            font-family: 'Schoolbell', cursive; font-weight: 400;
+            font-size: clamp(52px, 14vw, 104px); line-height: 0.95;
+            margin: 40px 0 12px; letter-spacing: -0.01em;
+        }
+        h1 span { color: var(--blue); }
+        .updated { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--muted); margin: 0 0 32px; }
+
+        .ledger {
+            border: 3px solid var(--navy); background: #fff;
+            box-shadow: 6px 6px 0 var(--navy);
+            margin: 0 6px 40px 0;
+        }
+        .ledger-head {
+            font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+            padding: 12px 18px; border-bottom: 2px solid var(--navy); background: var(--navy); color: var(--beige);
+        }
+        .ledger-counts { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 2px solid var(--navy); }
+        .ledger-counts div { padding: 16px 18px; border-right: 2px solid var(--navy); }
+        .ledger-counts div:last-child { border-right: 0; }
+        .ledger-counts b { display: block; font-family: 'Schoolbell', cursive; font-weight: 400; font-size: 44px; line-height: 1; color: var(--blue); }
+        .ledger-counts span { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+        .ledger ul { margin: 0; padding: 16px 18px 16px 36px; }
+        .ledger li { margin: 6px 0; }
+
+        .toc { border-top: 2px solid var(--navy); border-bottom: 2px solid var(--navy); padding: 16px 0; margin: 0 0 8px; }
+        .toc-title { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 8px; color: var(--muted); }
+        .toc ol { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 32px; }
+        .toc li { margin: 0; break-inside: avoid; }
+        .toc a { display: flex; gap: 10px; align-items: baseline; padding: 7px 0; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 15px; line-height: 1.35; }
+        .toc a:hover { color: var(--blue); }
+        .toc a span { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 12px; color: var(--blue); flex: 0 0 auto; }
+
+        h2 {
+            font-family: 'Inter', Arial, sans-serif; font-weight: 800; font-size: 22px; line-height: 1.3;
+            margin: 44px 0 12px; padding-top: 20px; border-top: 2px solid var(--rule);
+            scroll-margin-top: 12px;
+        }
+        h2 .n { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 14px; color: var(--blue); margin-right: 10px; }
+        h3 { font-size: 17px; font-weight: 800; margin: 24px 0 6px; line-height: 1.4; }
+        ul { padding-left: 22px; }
+        li { margin: 8px 0; }
+        .muted { color: var(--muted); }
+
+        .table-scroll { overflow-x: auto; margin: 16px 0; border: 2px solid var(--navy); background: #fff; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.5; }
+        th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+        th { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--beige-dark); border-bottom: 2px solid var(--navy); }
+        tr:last-child td { border-bottom: 0; }
+        code { font-family: 'DM Mono', monospace; font-size: 13px; background: var(--beige-dark); padding: 1px 5px; overflow-wrap: anywhere; }
+
+        .sign {
+            margin-top: 64px; padding-top: 16px; border-top: 3px solid var(--navy);
+            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 16px;
+        }
+        .sign .name { font-family: 'Gloria Hallelujah', cursive; font-size: 30px; line-height: 1.2; transform: rotate(-2deg); }
+        .sign .name span { color: var(--blue); }
+        .sign .links { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; display: flex; gap: 20px; }
+        .sign .links a { display: inline-flex; align-items: center; min-height: 44px; }
+
+        .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+        /* Phones: stack tables into cards so nothing needs sideways scrolling */
+        @media (max-width: 600px) {
+            .toc ol { columns: 1; }
+            h2 { font-size: 20px; margin-top: 36px; }
+            .ledger-counts { grid-template-columns: 1fr; }
+            .ledger-counts div { border-right: 0; border-bottom: 2px solid var(--navy); display: flex; align-items: center; gap: 14px; padding: 12px 18px; }
+            .ledger-counts div:last-child { border-bottom: 0; }
+            .ledger-counts b { font-size: 38px; }
+            .ledger ul { padding: 14px 16px 14px 32px; }
+
+            .table-scroll { border: 0; background: transparent; overflow: visible; }
+            .table-scroll thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+            .table-scroll table, .table-scroll tbody, .table-scroll tr, .table-scroll td { display: block; width: 100%; }
+            .table-scroll tr { background: #fff; border: 2px solid var(--navy); margin: 0 0 12px; }
+            .table-scroll td { border-bottom: 1px solid var(--rule); padding: 10px 14px; font-size: 15px; }
+            .table-scroll tr td:last-child { border-bottom: 0; }
+            .table-scroll td::before {
+                content: attr(data-label); display: block; margin-bottom: 2px;
+                font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="topbar">
+            <a href="/">&larr; Portfolio</a>
+            <nav aria-label="Legal">
+                <a href="privacy.html" aria-current="page">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Privacy <span>Policy</span></h1>
+            <p class="updated">Last updated: 28 September 2026</p>
+
+            <section class="ledger" aria-label="Summary">
+                <div class="ledger-head">The short version</div>
+                <div class="ledger-counts">
+                    <div><b>0</b><span>Forms or sign-ups</span></div>
+                    <div><b>0</b><span>Cookies set by my code</span></div>
+                    <div><b>0</b><span>Ads or tracking pixels</span></div>
+                </div>
+                <ul>
+                    <li>This is a personal portfolio. It never asks you to type in any information.</li>
+                    <li>My hosting and security provider, Cloudflare, processes technical data such as your IP address to deliver and protect the site. It may set short-lived security cookies.</li>
+                    <li>Fonts and code libraries load from other companies' servers, which see your IP address when your browser fetches them.</li>
+                    <li>If you email me, I receive what you choose to send and use it only to reply.</li>
+                    <li>I never sell your data or share it for advertising.</li>
+                </ul>
+            </section>
+
+            <nav class="toc" aria-label="Contents">
+                <p class="toc-title">On this page</p>
+                <ol>
+                    <li><a href="#who"><span>01</span>Who I am</a></li>
+                    <li><a href="#direct"><span>02</span>Information you send me</a></li>
+                    <li><a href="#automatic"><span>03</span>Data processed when you visit</a></li>
+                    <li><a href="#cookies"><span>04</span>Cookies and browser storage</a></li>
+                    <li><a href="#dont"><span>05</span>What I don't do</a></li>
+                    <li><a href="#basis"><span>06</span>Why data is processed</a></li>
+                    <li><a href="#retention"><span>07</span>How long data is kept</a></li>
+                    <li><a href="#security"><span>08</span>Security and breaches</a></li>
+                    <li><a href="#transfers"><span>09</span>International transfers</a></li>
+                    <li><a href="#rights"><span>10</span>Your rights</a></li>
+                    <li><a href="#children"><span>11</span>Children</a></li>
+                    <li><a href="#links"><span>12</span>Other websites</a></li>
+                    <li><a href="#changes"><span>13</span>Changes</a></li>
+                    <li><a href="#contact"><span>14</span>Contact and grievances</a></li>
+                </ol>
+            </nav>
+
+            <h2 id="who"><span class="n">01</span>Who I am</h2>
+            <p>This website, <strong>bajkamalsingh.me</strong> (including www.bajkamalsingh.me, together the "site"), is the personal portfolio of <strong>Bajkamal Singh</strong>, an individual based in Delhi, India ("I", "me").</p>
+            <p>For personal data I decide how to handle, I am the Data Fiduciary under India's Digital Personal Data Protection Act, 2023 ("DPDP Act") and the data controller under the EU and UK General Data Protection Regulation ("GDPR"). This policy is written with the DPDP Act and the DPDP Rules, 2025, the Information Technology Act, 2000, and the GDPR in mind. My guiding principle is simple: collect as little as possible.</p>
+
+            <h2 id="direct"><span class="n">02</span>Information you send me</h2>
+            <p>The site has no forms, accounts, comment boxes, newsletters or payment features.</p>
+            <p>The only way I receive personal information directly is if <strong>you choose to email me</strong>. The "say hi" and "Mail" links just open your own email app. If you write to me, I receive your email address, your name if you include it, and the content of your message and any attachments. I use this only to read and reply to your message and continue the conversation you started. I don't add you to any mailing list.</p>
+            <p>My email is provided by Google (Gmail), so your message is also processed under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>. Please don't email me sensitive information such as passwords, bank or card details, government ID numbers or health information.</p>
+
+            <h2 id="automatic"><span class="n">03</span>Data processed automatically when you visit</h2>
+            <p>Loading any website means your browser connects to servers, and those servers receive some technical information. The site's own code doesn't collect this information, but the services below process it.</p>
+
+            <h3>Cloudflare: hosting, security and analytics</h3>
+            <p>The site is hosted on Cloudflare Pages and served through Cloudflare's network. To deliver pages and protect the site from attacks and abusive bots, Cloudflare processes your <strong>IP address, browser and device details (user agent), the page requested, the referring page, the date and time, and an approximate location derived from your IP address</strong>. Specifically:</p>
+            <ul>
+                <li><strong>Automated browser check.</strong> Cloudflare adds a small script to each page that checks whether your browser behaves like a real browser rather than a bot. The result is stored in a security cookie (see section 04).</li>
+                <li><strong>Firewall and bot protection.</strong> Cloudflare's firewall, bot protection, browser integrity check and script monitoring may block or challenge suspicious requests.</li>
+                <li><strong>Web Analytics.</strong> Cloudflare Web Analytics loads a script from <code>static.cloudflareinsights.com</code> and sends page-view and page-speed measurements back through this site. Cloudflare says this analytics tool doesn't use cookies or local storage, and doesn't fingerprint visitors.</li>
+                <li><strong>Email address protection.</strong> Cloudflare hides my email address in the page code from spam bots, and a small script reveals it on screen for you.</li>
+                <li><strong>Network error reports.</strong> If the site fails to load properly, for example because of a connection error, your browser may automatically send Cloudflare an error report to help diagnose network problems.</li>
+            </ul>
+            <p><strong>What I can see:</strong> my Cloudflare dashboard shows me aggregate statistics, such as visits, pages viewed, referring websites, countries, and browser and device types. Cloudflare's security tools can also show me details of individual requests, including IP addresses, for a sample of traffic and for requests that were blocked or challenged. I use this only to run and protect the site, and I don't try to identify visitors.</p>
+            <p>Cloudflare's own handling of this data is covered by the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Privacy Policy</a>.</p>
+
+            <h3>Fonts and code libraries</h3>
+            <p>To show fonts, icons, animations and sound, your browser downloads files directly from the providers below. Each provider receives your IP address and user agent. The site's Referrer-Policy means they're only told the request came from bajkamalsingh.me, not which page you were on.</p>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th scope="col">Provider</th><th scope="col">What it serves</th><th scope="col">Server</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td data-label="Provider">Google Fonts (Google)</td><td data-label="What it serves">Web fonts</td><td data-label="Server"><code>fonts.googleapis.com</code>, <code>fonts.gstatic.com</code></td></tr>
+                        <tr><td data-label="Provider">CDNFonts</td><td data-label="What it serves">Web font (Open Sauce One)</td><td data-label="Server"><code>fonts.cdnfonts.com</code></td></tr>
+                        <tr><td data-label="Provider">Tailwind CSS</td><td data-label="What it serves">Styling framework</td><td data-label="Server"><code>cdn.tailwindcss.com</code></td></tr>
+                        <tr><td data-label="Provider">jsDelivr</td><td data-label="What it serves">Icon library (Lucide)</td><td data-label="Server"><code>cdn.jsdelivr.net</code></td></tr>
+                        <tr><td data-label="Provider">cdnjs (hosted by Cloudflare)</td><td data-label="What it serves">Animation and sound libraries (GSAP, Tone.js)</td><td data-label="Server"><code>cdnjs.cloudflare.com</code></td></tr>
+                        <tr><td data-label="Provider">unpkg</td><td data-label="What it serves">Smooth-scroll library (Lenis)</td><td data-label="Server"><code>unpkg.com</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="muted">These providers act independently under their own privacy policies. I don't receive any data from them.</p>
+
+            <h2 id="cookies"><span class="n">04</span>Cookies and browser storage</h2>
+            <p>The site's own code <strong>doesn't set any cookies</strong>. It also doesn't use your browser's local storage, session storage, IndexedDB or service workers.</p>
+            <p>Cloudflare sets <strong>strictly necessary security cookies</strong> to protect the site, such as:</p>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th scope="col">Cookie</th><th scope="col">Set by</th><th scope="col">Purpose</th><th scope="col">Duration</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td data-label="Cookie"><code>cf_clearance</code></td><td data-label="Set by">Cloudflare</td><td data-label="Purpose">Stores the result of the automated browser check, or of any security challenge you pass, so you aren't checked on every page</td><td data-label="Duration">Short-lived (minutes)</td></tr>
+                        <tr><td data-label="Cookie"><code>__cf_bm</code></td><td data-label="Set by">Cloudflare</td><td data-label="Purpose">Tells human visitors and bots apart (Bot Fight Mode)</td><td data-label="Duration">Expires after about 30 minutes of inactivity</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Cloudflare lists all the cookies it may use in its <a href="https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/" target="_blank" rel="noopener noreferrer">cookie documentation</a>. These cookies are used only for security. They aren't used for advertising or to track you across websites, so the site doesn't show a cookie consent banner. You can block or delete cookies in your browser settings. The site will still work, but you may see security checks more often.</p>
+
+            <h2 id="dont"><span class="n">05</span>What I don't do</h2>
+            <ul>
+                <li>I don't sell, rent or trade personal data.</li>
+                <li>I don't share personal data for advertising or build profiles of visitors.</li>
+                <li>I don't use Google Analytics, Meta Pixel, advertising networks or session-recording tools.</li>
+                <li>I don't intentionally collect sensitive personal data.</li>
+                <li>I don't make automated decisions about you that have legal or similarly significant effects.</li>
+                <li>The site doesn't track you across other websites, so there's nothing extra to switch off if your browser sends a Do Not Track or Global Privacy Control signal.</li>
+            </ul>
+
+            <h2 id="basis"><span class="n">06</span>Why data is processed (legal basis)</h2>
+            <ul>
+                <li><strong>Delivering and securing the site</strong> (Cloudflare and the providers above): this is needed to show you the site, keep it working, and prevent attacks and unauthorised access. Under the GDPR, the basis is legitimate interests (Article 6(1)(f)).</li>
+                <li><strong>Replying to your emails</strong>: you send this information yourself so that I can reply. Under the DPDP Act, this is processing for the purpose you voluntarily provided it for (Section 7(a)), and you can tell me at any time to stop. Under the GDPR, the basis is legitimate interests, or steps you ask for before a contract (Article 6(1)(b) and (f)).</li>
+            </ul>
+
+            <h2 id="retention"><span class="n">07</span>How long data is kept</h2>
+            <ul>
+                <li><strong>Emails</strong>: I keep them only as long as they're useful for our conversation or opportunity, and I'll delete them if you ask.</li>
+                <li><strong>Cloudflare logs and analytics</strong>: kept by Cloudflare for the limited periods set by Cloudflare. I can't change these periods.</li>
+                <li><strong>Font and library providers</strong>: kept according to each provider's own policies.</li>
+            </ul>
+
+            <h2 id="security"><span class="n">08</span>Security and breaches</h2>
+            <p>The site is served only over HTTPS. Plain HTTP visits are redirected, and HTTP Strict Transport Security is enabled. The site also uses:</p>
+            <ul>
+                <li>a Content Security Policy that restricts which outside servers can supply code, styles and fonts;</li>
+                <li>Subresource Integrity checks on most third-party scripts;</li>
+                <li>headers that stop the site being embedded in other websites;</li>
+                <li>Cloudflare's firewall and bot protection.</li>
+            </ul>
+            <p>No system is completely secure. If a personal data breach ever affects information I hold, I'll inform the affected people and the Data Protection Board of India as the law requires. If you find a security issue, please report it privately to <a href="mailto:bajkamalsingh1@gmail.com">bajkamalsingh1@gmail.com</a>.</p>
+
+            <h2 id="transfers"><span class="n">09</span>International transfers</h2>
+            <p>Cloudflare, Google and the other providers above run global networks, so technical data may be processed in countries other than yours, including the United States. They apply their own safeguards to these transfers, as described in their privacy policies.</p>
+
+            <h2 id="rights"><span class="n">10</span>Your rights</h2>
+            <p>Depending on where you live, you may have the right to:</p>
+            <ul>
+                <li>ask what personal data I hold about you and how it's used;</li>
+                <li>have it corrected, completed or updated;</li>
+                <li>have it erased;</li>
+                <li>withdraw consent or object to processing;</li>
+                <li>restrict processing or receive a copy of your data (under the GDPR);</li>
+                <li>nominate someone to exercise your rights if you die or become incapacitated (under the DPDP Act);</li>
+                <li>raise a grievance with me, and then with a regulator.</li>
+            </ul>
+            <p>In practice, the only personal data I hold myself is the emails people send me. To make a request, email <a href="mailto:bajkamalsingh1@gmail.com">bajkamalsingh1@gmail.com</a>. I may need to confirm it's really you before acting on it. I'll respond as soon as I can, and within 30 days at most. For data held by Cloudflare, Google or another provider, you can also contact them directly.</p>
+            <p>If you aren't satisfied with my response, you can complain to the <strong>Data Protection Board of India</strong>, or to your local data protection authority if you're in the EU or UK.</p>
+
+            <h2 id="children"><span class="n">11</span>Children</h2>
+            <p>This site is a professional portfolio and isn't directed at children under 18. I don't knowingly collect personal data from children. If you believe a child has sent me personal information, contact me and I'll delete it.</p>
+
+            <h2 id="links"><span class="n">12</span>Other websites</h2>
+            <p>The site links to other platforms, such as Instagram and LinkedIn, and may mention other brands' websites. Those sites have their own privacy practices, which I don't control. Please read their policies when you visit them.</p>
+
+            <h2 id="changes"><span class="n">13</span>Changes to this policy</h2>
+            <p>I'll update this policy whenever the site changes the way it handles data, for example if I add a contact form or a new analytics tool. The "Last updated" date at the top always shows the latest version.</p>
+
+            <h2 id="contact"><span class="n">14</span>Contact and grievances</h2>
+            <p>For questions, requests or complaints about privacy on this site, contact:</p>
+            <p><strong>Bajkamal Singh</strong><br>Delhi, India<br><a href="mailto:bajkamalsingh1@gmail.com">bajkamalsingh1@gmail.com</a></p>
+        </main>
+
+        <footer class="sign">
+            <div class="name">Bajkamal Singh <span>(Baaz)</span></div>
+            <div class="links">
+                <a href="/">Portfolio</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
